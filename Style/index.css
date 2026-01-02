@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+}
+
+/* Main split screen */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Left section */
+.left-section {
+    flex: 1;
+    background-color: #0e7fdb;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.left-section h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.left-section p {
+    font-size: 18px;
+}
+
+/* Right section */
+.right-section {
+    flex: 1;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Login box */
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0e7fdb;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #0b66b0;
+}
+
+
+/* ===== Logo ===== */
+.form-logo {
+    width: 80px;
+    margin: 0 auto 15px;
+    display: block;
+}
+
+/* ===== Form Header Text ===== */
+.form-title {
+    text-align: center;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-subtitle {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 14px;
+}
+
+/* ===== Footer ===== */
+.form-footer {
+    margin-top: 15px;
+    text-align: center;
+}
