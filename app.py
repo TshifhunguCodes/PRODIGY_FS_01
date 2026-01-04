@@ -3,9 +3,9 @@ from flask import Flask, render_template, request, redirect, url_for, session, f
 import database as db
 
 app = Flask(__name__)
-app.secret_key = 'your-secret-key-here-change-this-in-production'  # Change this!
 
-# ================= HELPER FUNCTIONS =================
+
+# HELPER FUNCTIONS
 def validate_password(password):
     """Validate password strength"""
     if len(password) < 8:
@@ -45,7 +45,7 @@ def validate_phone(phonenumber):
     
     return True, ""
 
-# ================= ROUTES =================
+# ROUTES
 @app.route("/", methods=["GET"])
 def index():
     if 'user_id' in session:
@@ -67,7 +67,7 @@ def login():
     user = db.get_user(username, password)
     
     if user:
-        session['user_id'] = user['id']  # Note: capital 'I' from database
+        session['user_id'] = user['id']  
         session['username'] = user['username']
         session['email'] = user['email']
         return redirect(url_for('dashboard'))
