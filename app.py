@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, f
 import database as db
 
 app = Flask(__name__)
-
+app.secret_key = 'your-secret-key-here-change-this-in-production'  # Change this!
 
 # HELPER FUNCTIONS
 def validate_password(password):
@@ -67,9 +67,11 @@ def login():
     user = db.get_user(username, password)
     
     if user:
-        session['user_id'] = user['id']  
+        # FIXED: Changed user['id'] to user['Id'] (uppercase I from database)
+        session['user_id'] = user['id']  # Changed from 'id' to 'Id'
         session['username'] = user['username']
         session['email'] = user['email']
+        # FIXED: Redirect to dashboard template instead of returning HTML string
         return redirect(url_for('dashboard'))
     else:
         flash("Invalid username or password", "error")
@@ -155,11 +157,10 @@ def dashboard():
     if 'user_id' not in session:
         return redirect(url_for('index'))
     
-    return f"""
-    <h1>Welcome, {session['username']}!</h1>
-    <p>Email: {session['email']}</p>
-    <a href="/logout">Logout</a>
-    """
+    # FIXED: Render dashboard.html template instead of returning HTML string
+    return render_template("dashboard.html", 
+                         username=session['username'],
+                         email=session['email'])
 
 @app.route("/logout")
 def logout():

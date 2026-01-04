@@ -1,0 +1,260 @@
+/* dashboard.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0e7fdb 0%,#0e7fdb 100%);
+    min-height: 100vh;
+}
+
+nav {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav h1 {
+    color: #333;
+    font-size: 1.8rem;
+}
+
+.logout-btn {
+    background: #ff4757;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.logout-btn:hover {
+    background: #ff3838;
+    transform: translateY(-2px);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.user-info {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.user-info h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.user-info p {
+    font-size: 1.1rem;
+    margin: 0.8rem 0;
+    color: #555;
+}
+
+.user-info strong {
+    color: #333;
+    min-width: 150px;
+    display: inline-block;
+}
+
+.protected-content {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.protected-content h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.feature-card {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    border-left: 4px solid #667eea;
+    transition: all 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.feature-card h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.feature-card p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.security-status {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.security-status h3 {
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.security-status p {
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    background: #e8f5e9;
+    border-radius: 8px;
+    color: #2e7d32;
+    font-weight: 500;
+}
+
+.security-status p:before {
+    content: "✓ ";
+    font-weight: bold;
+}
+
+.welcome-banner {
+    text-align: center;
+    color: white;
+    padding: 3rem 1rem;
+}
+
+.welcome-banner h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.welcome-banner p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 1.5rem;
+    color: white;
+    text-align: center;
+}
+
+.stat-card h3 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .features {
+        grid-template-columns: 1fr;
+    }
+    
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .welcome-banner h1 {
+        font-size: 2rem;
+    }
+    
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.logout-btn {
+    background-color: #0e7fdb;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(14, 127, 219, 0.2);
+}
+
+.logout-btn:hover {
+    background-color: #0c6dc1;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(14, 127, 219, 0.3);
+}
+
+.logout-btn:active {
+    background-color: #0a5ca7;
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(14, 127, 219, 0.2);
+}
+
+/* If you want it with an icon */
+.logout-btn.with-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* If you want a more rounded button */
+.logout-btn.rounded {
+    border-radius: 50px;
+    padding: 12px 30px;
+}
+
+/* For a more subtle button */
+.logout-btn.subtle {
+    background-color: rgba(14, 127, 219, 0.1);
+    color: #0e7fdb;
+    border: 2px solid #0e7fdb;
+}
+
+.logout-btn.subtle:hover {
+    background-color: #0e7fdb;
+    color: white;
+}

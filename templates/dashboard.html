@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Secure Authentication</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+    <nav>
+        <h1>Welcome, {{ username }}!</h1>
+        <a class="logout-btn"  href="/logout">Logout</a>
+    </nav>
+    
+    <div class="container">
+        <div class="user-info">
+            <h2>Your Profile</h2>
+            <p><strong>Username:</strong> {{ username }}</p>
+            <p><strong>Email:</strong> {{ email }}</p>
+            <p><strong>Login Status:</strong> ✅ Authenticated</p>
+        </div>
+        
+        <div class="protected-content">
+            <h2>Protected Content</h2>
+            <p>This content is only visible to authenticated users.</p>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <h3>🔒 Secure Area 1</h3>
+                    <p>Only accessible after login</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📊 User Statistics</h3>
+                    <p>Your account is protected</p>
+                </div>
+                <div class="feature-card">
+                    <h3>⚙️ Account Settings</h3>
+                    <p>Coming soon...</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="security-status">
+            <h3>Security Status</h3>
+            <p>✅ Passwords are securely hashed</p>
+            <p>✅ Session is active</p>
+            <p>✅ Protected route accessed</p>
+        </div>
+    </div>
+</body>
+</html>
