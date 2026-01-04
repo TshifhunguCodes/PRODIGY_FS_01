@@ -61,7 +61,7 @@ def create_user(username, password, email, idnumber, gender, phonenumber):
         user = cur.fetchone()
         conn.commit()
         
-        print(f"DEBUG: User created successfully with ID: {user['Id']}")
+        print(f"DEBUG: User created successfully with ID: {user['id']}")
         
         cur.close()
         conn.close()
