@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secure User Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+    <style>
+        .flash-messages {
+            margin: 10px 0;
+        }
+        .alert {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+        }
+        .alert-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Left section -->
+    <div class="left-section">
+        <h1>Create Account</h1>
+        <p>Register to access secure features and services.</p>
+    </div>
+
+    <!-- Right section -->
+    <div class="right-section">
+        <div class="form-container">
+            <!-- Flash Messages -->
+            <div class="flash-messages">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+
+            <form method="POST" action="{{ url_for('register') }}">
+                <label>Username *</label>
+                <input type="text" name="username" required minlength="3" maxlength="50">
+
+                <label>Password * (min 8 chars with uppercase, lowercase, number)</label>
+                <input type="password" name="password" required minlength="8">
+
+                <label>Confirm Password *</label>
+                <input type="password" name="confirm_password" required minlength="8">
+
+                <label>Email *</label>
+                <input type="email" name="email" required>
+
+                <!-- CHANGED: id_number to idnumber -->
+                <label>ID Number * (13 digits)</label>
+                <input type="text" name="idnumber" required pattern="\d{13}" 
+                       title="13 digit ID number">
+
+                <label>Gender *</label>
+                <select name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <!-- CHANGED: phone to phonenumber -->
+                <label>Phone Number * (digits only)</label>
+                <input type="text" name="phonenumber" required pattern="[\d\s\-]+" 
+                       title="Digits, spaces, or dashes only">
+
+                <button type="submit">Register</button>
+
+                <p>
+                    Already have an account?
+                    <!-- CHANGED: login to index (login is POST route) -->
+                    <a href="{{ url_for('index') }}">Log In</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
